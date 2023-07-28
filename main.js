@@ -54,3 +54,9 @@ function renderAlcoholOptions(categories) {
     alcoholSelect.append(option);
   });
 }
+//eventlistners
+cocktailSelect.addEventListener("change", getDetailsByCocktails);
+categorySelect.addEventListener("change", getDetailsByCategories);
+alcoholSelect.addEventListener("change", getDetailsByAlcohol);
+
+function getDetailsByCocktails(e) {}
