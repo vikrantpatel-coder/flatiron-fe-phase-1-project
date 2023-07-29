@@ -14,14 +14,14 @@ function getCategories() {
     .then((categories) => renderCategoriesOptions(categories.drinks))
     .catch((error) => alert(error));
 }
-//fetching cocktail alcohol base
+//cocktail alcohol base drink dropdown
 function getAlcohol() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
     .then((r) => r.json())
     .then((categories) => renderAlcoholOptions(categories.drinks))
     .catch((error) => alert(error));
 }
-
+//drink bu glass type dropdown
 function getGlass() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list")
     .then((r) => r.json())
@@ -60,6 +60,7 @@ categorySelect.addEventListener("change", getDrinksByCategories);
 alcoholSelect.addEventListener("change", getDrinksByAlcohol);
 glassSelect.addEventListener("change", getDrinksByGlass);
 
+//categories
 function getDrinksByCategories(e) {
   const category = e.target.value;
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
@@ -67,7 +68,23 @@ function getDrinksByCategories(e) {
     .then((drinks) => renderAllDrinks(drinks.drinks))
     .catch((error) => alert(error));
 }
-
+//alcohol
+function getDrinksByAlcohol(e) {
+  const alcohol = e.target.value;
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`)
+    .then((r) => r.json())
+    .then((drinks) => renderAllDrinks(drinks.drinks))
+    .catch((error) => alert(error));
+}
+//glass
+function getDrinksByGlass(e) {
+  const glass = e.target.value;
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${glass}`)
+    .then((r) => r.json())
+    .then((drinks) => renderAllDrinks(drinks.drinks))
+    .catch((error) => alert(error));
+}
+//creating card for each element
 function renderAllDrinks(drinks) {
   drinkContainer.replaceChildren();
   drinks.forEach((drink) => {
@@ -77,20 +94,27 @@ function renderAllDrinks(drinks) {
   alcoholSelect.value = "";
   glassSelect.value = "";
 }
+
 function renderDrinkCard(drinks) {
+  //img
   const { strDrink, strDrinkThumb, idDrink } = drinks;
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
+  cardDiv.addEventListener("click", (e) => getDrinkDetails(e, idDrink));
 
   const image = document.createElement("img");
   image.src = strDrinkThumb;
-
+  //Drink title
   const title = document.createElement("h3");
   title.textContent = strDrink;
 
   cardDiv.append(image, title);
   drinkContainer.append(cardDiv);
 }
-function getDrinksByAlcohol(e) {}
-
-function getDrinksByGlass(e) {}
+//drink details
+function getDrinkDetails(e, idDrink) {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`)
+    .then((r) => r.json())
+    .then((drinks) => console.log(drinks.drinks))
+    .catch((error) => alert(error));
+}
