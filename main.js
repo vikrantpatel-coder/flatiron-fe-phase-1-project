@@ -69,6 +69,7 @@ function getDrinksByCategories(e) {
 }
 
 function renderAllDrinks(drinks) {
+  drinkContainer.replaceChildren();
   drinks.forEach((drink) => {
     renderDrinkCard(drink);
   });
@@ -78,21 +79,17 @@ function renderAllDrinks(drinks) {
 }
 function renderDrinkCard(drinks) {
   const { strDrink, strDrinkThumb, idDrink } = drinks;
-  console.log(strDrinkThumb);
-}
+  const cardDiv = document.createElement("div");
+  cardDiv.classList.add("card");
 
-function renderAllDrinks(drinks) {
-  let card = document.createElement("li");
-  card.className = "card";
-  card.innerHTML = `<img src = "${drinks.trDrinkThumb}">
-  <div class = "content"
-  <h4>${drinks.strDrink}<h4>
-  </div>
-  `;
-  console.log(card);
-}
-function initialize() {
-  drinks.forEach((drinks) => renderAllDrinks(drinks));
+  const image = document.createElement("img");
+  image.src = strDrinkThumb;
+
+  const title = document.createElement("h3");
+  title.textContent = strDrink;
+
+  cardDiv.append(image, title);
+  drinkContainer.append(cardDiv);
 }
 function getDrinksByAlcohol(e) {}
 
