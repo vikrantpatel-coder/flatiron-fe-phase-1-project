@@ -1,17 +1,12 @@
-const cocktailSelect = document.querySelector("#cocktails");
 const categorySelect = document.querySelector("#categories");
 const alcoholSelect = document.querySelector("#alcohol");
+const glassSelect = document.querySelector("#glass");
+const drinkContainer = document.querySelector(".drink-container");
 
-getDrinks();
 getCategories();
 getAlcohol();
-//fetching all the cocktail drinks
-function getDrinks() {
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
-    .then((r) => r.json())
-    .then((drinks) => renderDrinkOptions(drinks.drinks))
-    .catch((error) => alert("Sober Up!"));
-}
+getGlass();
+
 //drink categories dropdown menu
 function getCategories() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
@@ -27,14 +22,11 @@ function getAlcohol() {
     .catch((error) => alert(error));
 }
 
-//rendering Drinks into Select a Drink dropdown
-function renderDrinkOptions(drinks) {
-  drinks.forEach((drinks) => {
-    const option = document.createElement("option");
-    option.value = drinks.strDrink;
-    option.textContent = drinks.strDrink;
-    cocktailSelect.append(option);
-  });
+function getGlass() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list")
+    .then((r) => r.json())
+    .then((glass) => renderGlassOptions(glass.drinks))
+    .catch((error) => alert(error));
 }
 //rendering Categories list into select categories dropdown
 function renderCategoriesOptions(categories) {
@@ -54,9 +46,54 @@ function renderAlcoholOptions(categories) {
     alcoholSelect.append(option);
   });
 }
+//rendering glass types dropdown
+function renderGlassOptions(glass) {
+  glass.forEach((glass) => {
+    const option = document.createElement("option");
+    option.value = glass.strGlass;
+    option.textContent = glass.strGlass;
+    glassSelect.append(option);
+  });
+}
 //eventlistners
-cocktailSelect.addEventListener("change", getDetailsByCocktails);
-categorySelect.addEventListener("change", getDetailsByCategories);
-alcoholSelect.addEventListener("change", getDetailsByAlcohol);
+categorySelect.addEventListener("change", getDrinksByCategories);
+alcoholSelect.addEventListener("change", getDrinksByAlcohol);
+glassSelect.addEventListener("change", getDrinksByGlass);
 
-function getDetailsByCocktails(e) {}
+function getDrinksByCategories(e) {
+  const category = e.target.value;
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
+    .then((r) => r.json())
+    .then((drinks) => renderAllDrinks(drinks.drinks))
+    .catch((error) => alert(error));
+}
+
+function renderAllDrinks(drinks) {
+  drinks.forEach((drink) => {
+    renderDrinkCard(drink);
+  });
+  categorySelect.value = "";
+  alcoholSelect.value = "";
+  glassSelect.value = "";
+}
+function renderDrinkCard(drinks) {
+  const { strDrink, strDrinkThumb, idDrink } = drinks;
+  console.log(strDrinkThumb);
+}
+
+function renderAllDrinks(drinks) {
+  let card = document.createElement("li");
+  card.className = "card";
+  card.innerHTML = `<img src = "${drinks.trDrinkThumb}">
+  <div class = "content"
+  <h4>${drinks.strDrink}<h4>
+  </div>
+  `;
+  console.log(card);
+}
+function initialize() {
+  drinks.forEach((drinks) => renderAllDrinks(drinks));
+}
+function getDrinksByAlcohol(e) {}
+
+function getDrinksByGlass(e) {}
