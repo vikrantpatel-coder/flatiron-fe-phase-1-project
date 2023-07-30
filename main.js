@@ -194,7 +194,7 @@ function parseIngredients(drink) {
       measure = "";
       continue;
     }
-
+    //if ingredient and measure defined
     let ingredientString =
       (measure ? measure.trim() : "") +
       " " +
