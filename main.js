@@ -115,6 +115,62 @@ function renderDrinkCard(drinks) {
 function getDrinkDetails(e, idDrink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`)
     .then((r) => r.json())
-    .then((drinks) => console.log(drinks.drinks))
+    .then((drinks) => renderDrinkDetails(drinks.drinks[0]))
     .catch((error) => alert(error));
+}
+function renderDrinkDetails(drinkDetails) {
+  drinkContainer.replaceChildren();
+
+  const {
+    strDrink: drink,
+    strAlcoholic: alcoholic,
+    strCategory: category,
+    strDrinkThumb: image,
+    strInstructions: directions,
+    strVideo: videoLink,
+  } = drinkDetails;
+
+  const title = document.createElement("p");
+  title.textContent = drink;
+  let titleArea = document.querySelector(".drink-details-title");
+  titleArea.replaceChildren();
+  titleArea.append(title);
+
+  const imageArea = document.querySelector(".drink-details-image");
+  const drinkImage = document.createElement("img");
+  drinkImage.src = image;
+  drinkImage.alt = `Image for ${drink} `;
+  imageArea.replaceChildren();
+  imageArea.append(drinkImage);
+
+  // const ingredientPs = parseIngredients
+
+  // ingredients content
+  const ingredientsArea = document.querySelector(".drink-details-ingredients");
+  const ingredientsTitle = document.createElement("h3");
+  ingredientsTitle.textContent = "Ingredients";
+  ingredientsTitle.style.textDecoration = "underline";
+  ingredientsArea.replaceChildren();
+  ingredientsArea.append(ingredientsTitle);
+
+  // directions content
+  const directionsArea = document.querySelector(".drink-details-directions");
+  const directionsTitle = document.createElement("h3");
+  directionsTitle.textContent = "Directions";
+  directionsTitle.style.textDecoration = "underline";
+  const directionsP = document.createElement("p");
+  directionsArea.replaceChildren();
+  directionsP.textContent = directions;
+  directionsArea.append(directionsTitle, directionsP);
+
+  // preparation video hyperlink
+  const youTubeLinkATag = document.createElement("a");
+  youTubeLinkATag.href = videoLink;
+  youTubeLinkATag.target = "_blank";
+  youTubeLinkATag.text = `How to make ${drink} on YouTube.`;
+  const drinkCategory = document.createElement("p");
+  drinkCategory.textContent = `(Drink: ${drink}, Category: ${category})`;
+  const resourcesArea = document.querySelector(".drink-details-resources");
+  resourcesArea.replaceChildren();
+  resourcesArea.append(youTubeLinkATag, drinkCategory);
 }
