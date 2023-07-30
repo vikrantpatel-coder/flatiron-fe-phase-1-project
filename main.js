@@ -8,7 +8,9 @@ const drinkDetailsContainer = document.querySelector(
   ".drink-details-container"
 );
 const welcomeSection = document.querySelector(".welcome");
+const mainTitle = document.querySelector(".main-title");
 
+// showWelcome();
 getCategories();
 getAlcohol();
 getGlass();
@@ -65,6 +67,7 @@ function renderGlassOptions(glass) {
 categorySelect.addEventListener("change", getDrinksByCategories);
 alcoholSelect.addEventListener("change", getDrinksByAlcohol);
 glassSelect.addEventListener("change", getDrinksByGlass);
+mainTitle.addEventListener("click", showWelcome);
 
 //categories
 function getDrinksByCategories(e) {
@@ -90,7 +93,7 @@ function getDrinksByGlass(e) {
     .then((drinks) => renderAllDrinks(drinks.drinks))
     .catch((error) => alert(error));
 }
-//creating card for each element
+
 function renderAllDrinks(drinks) {
   welcomeSection.style.display = "none";
   drinkDetailsContainer.style.display = "none";
@@ -122,7 +125,7 @@ function renderDrinkCard(drinks) {
   title.textContent = strDrink;
 
   drinkTitleDiv.append(title);
-  cardDiv.append(image, title);
+  cardDiv.append(image, drinkTitleDiv);
   drinkContainer.append(cardDiv);
 }
 //drink details
@@ -133,7 +136,34 @@ function getDrinkDetails(e, idDrink) {
     .catch((error) => alert(error));
 }
 function renderDrinkDetails(drinkDetails) {
+  welcomeSection.style.display = "none";
+  drinkDetailsContainer.style.display = "grid";
   drinkContainer.replaceChildren();
+  selectionH1.textContent = "";
+
+  //Trim method remove empty spaces
+  function parseIngredients(drink) {
+    const ingredientArray = [];
+
+    for (let i = 1; i < 21; i++) {
+      let measure = drink["strmeasure" + i.toString()];
+      let ingredient = drink["strIngredient" + i.toString()];
+
+      if (!ingredient || ingredient === null) {
+        ingredient = "";
+        measure = "";
+        continue;
+      }
+      //if ingredient and measure defined
+      let ingredientString =
+        (measure ? measure.trim() : "") +
+        " " +
+        (ingredient ? ingredient.trim() : "");
+      ingredientArray.push(ingredientString);
+    }
+
+    return ingredientArray;
+  }
 
   const {
     strDrink: drink,
@@ -158,7 +188,6 @@ function renderDrinkDetails(drinkDetails) {
   imageArea.append(drinkImage);
 
   const ingredients = parseIngredients(drinkDetails);
-
   const ingredientPs = ingredients.map((ingredient) => {
     const ingredientP = document.createElement("p");
     ingredientP.textContent = ingredient;
@@ -194,31 +223,6 @@ function renderDrinkDetails(drinkDetails) {
   resourcesArea.replaceChildren();
   resourcesArea.append(youTubeLinkATag, drinkCategory);
 }
-
-//Trim method remove empty spaces
-function parseIngredients(drink) {
-  const ingredientArray = [];
-
-  for (let i = 1; i < 21; i++) {
-    let measure = drink["strmeasure" + i.toString()];
-    let ingredient = drink["strIngredient" + i.toString()];
-
-    if (!ingredient || ingredient === null) {
-      ingredient = "";
-      measure = "";
-      continue;
-    }
-    //if ingredient and measure defined
-    let ingredientString =
-      (measure ? measure.trim() : "") +
-      " " +
-      (ingredient ? ingredient.trim() : "");
-    ingredientArray.push(ingredientString);
-  }
-
-  return ingredientArray;
-}
-
 function showWelcome() {
   drinkDetailsContainer.style.display = "none";
   drinkContainer.style.display = "none";

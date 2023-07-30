@@ -15,3 +15,12 @@ html {
 .card img{
     width: 100%;
 }
+
+.welcome{
+    font-size: larger;
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: azure;
+
+}
