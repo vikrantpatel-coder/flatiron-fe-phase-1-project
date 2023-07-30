@@ -101,13 +101,16 @@ function renderDrinkCard(drinks) {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   cardDiv.addEventListener("click", (e) => getDrinkDetails(e, idDrink));
-
   const image = document.createElement("img");
   image.src = strDrinkThumb;
+
   //Drink title
+  const drinkTitleDiv = document.createElement("div");
+  drinkTitleDiv.classList.add("drink-title");
   const title = document.createElement("h3");
   title.textContent = strDrink;
 
+  drinkTitleDiv.append(title);
   cardDiv.append(image, title);
   drinkContainer.append(cardDiv);
 }
