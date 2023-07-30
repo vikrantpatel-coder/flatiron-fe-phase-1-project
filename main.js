@@ -143,7 +143,13 @@ function renderDrinkDetails(drinkDetails) {
   imageArea.replaceChildren();
   imageArea.append(drinkImage);
 
-  // const ingredientPs = parseIngredients
+  const ingredients = parseIngredients(drinkDetails);
+
+  const ingredientPs = ingredients.map((ingredient) => {
+    const ingredientP = document.createElement("p");
+    ingredientP.textContent = ingredient;
+    return ingredientP;
+  });
 
   // ingredients content
   const ingredientsArea = document.querySelector(".drink-details-ingredients");
@@ -151,7 +157,7 @@ function renderDrinkDetails(drinkDetails) {
   ingredientsTitle.textContent = "Ingredients";
   ingredientsTitle.style.textDecoration = "underline";
   ingredientsArea.replaceChildren();
-  ingredientsArea.append(ingredientsTitle);
+  ingredientsArea.append(ingredientsTitle, ...ingredientPs);
 
   // directions content
   const directionsArea = document.querySelector(".drink-details-directions");
@@ -173,4 +179,28 @@ function renderDrinkDetails(drinkDetails) {
   const resourcesArea = document.querySelector(".drink-details-resources");
   resourcesArea.replaceChildren();
   resourcesArea.append(youTubeLinkATag, drinkCategory);
+}
+
+//Trim method remove empty spaces
+function parseIngredients(drink) {
+  const ingredientArray = [];
+
+  for (let i = 1; i < 21; i++) {
+    let measure = drink["strmeasure" + i.toString()];
+    let ingredient = drink["strIngredient" + i.toString()];
+
+    if (!ingredient || ingredient === null) {
+      ingredient = "";
+      measure = "";
+      continue;
+    }
+
+    let ingredientString =
+      (measure ? measure.trim() : "") +
+      " " +
+      (ingredient ? ingredient.trim() : "");
+    ingredientArray.push(ingredientString);
+  }
+
+  return ingredientArray;
 }
