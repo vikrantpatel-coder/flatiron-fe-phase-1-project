@@ -2,6 +2,7 @@ const categorySelect = document.querySelector("#categories");
 const alcoholSelect = document.querySelector("#alcohol");
 const glassSelect = document.querySelector("#glass");
 const drinkContainer = document.querySelector(".drink-container");
+const selectionH1 = document.querySelector(".selection-heading");
 
 getCategories();
 getAlcohol();
@@ -87,6 +88,8 @@ function getDrinksByGlass(e) {
 //creating card for each element
 function renderAllDrinks(drinks) {
   drinkContainer.replaceChildren();
+  selectionH1.textContent =
+    alcoholSelect.value || categorySelect.value || glassSelect.value;
   drinks.forEach((drink) => {
     renderDrinkCard(drink);
   });
