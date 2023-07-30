@@ -18,9 +18,19 @@ html {
 
 .welcome{
     font-size: larger;
-    max-width: 70%;
+    max-width: 80%;
     margin: 50px auto;
     padding: 30px;
     background-color: azure;
+    border-radius: 15px;
+    box-shadow: 0 4px rgb(6, 6, 6)
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: minmax(150px, auto)
 
+}
+
+.card img{
+    width: 100%;
 }
