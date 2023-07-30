@@ -3,6 +3,11 @@ const alcoholSelect = document.querySelector("#alcohol");
 const glassSelect = document.querySelector("#glass");
 const drinkContainer = document.querySelector(".drink-container");
 const selectionH1 = document.querySelector(".selection-heading");
+const drinkDetailsSection = document.querySelector(".drink-details-section");
+const drinkDetailsContainer = document.querySelector(
+  ".drink-details-container"
+);
+const welcomeSection = document.querySelector(".welcome");
 
 getCategories();
 getAlcohol();
@@ -87,6 +92,9 @@ function getDrinksByGlass(e) {
 }
 //creating card for each element
 function renderAllDrinks(drinks) {
+  welcomeSection.style.display = "none";
+  drinkDetailsContainer.style.display = "none";
+  drinkContainer.style.display = "grid";
   drinkContainer.replaceChildren();
   selectionH1.textContent =
     alcoholSelect.value || categorySelect.value || glassSelect.value;
@@ -209,4 +217,11 @@ function parseIngredients(drink) {
   }
 
   return ingredientArray;
+}
+
+function showWelcome() {
+  drinkDetailsContainer.style.display = "none";
+  drinkContainer.style.display = "none";
+  welcomeSection.style.display = "grid";
+  selectionH1.textContent = "";
 }
