@@ -1,13 +1,21 @@
 # flatiron-fe-phase-1-project
 
-My Flatiron Frontend Phase 1 Project
+<<<<<<<<<<<<<<<<<<<<<<[My Flatiron Frontend Phase 1 Project]>>>>>>>>>>>>>>>>>>>>>>>>
 
-Project Name:
+- Project Name: 'Bottoms Up!'
 
-Description:
+- Description:
 
-Installation instruction:
+> It is a beverage data base application.
 
-App Walkthrough:
+> This project is built around my love for beverages.
 
-Contributor's Guide: Personal Project
+> From coffee to cocktail you will find all kinds of drink here.
+
+- Installation instruction:
+
+- App Walkthrough:
+
+- Contributor's Guide: Personal Project:
+
+- Roadmap:
