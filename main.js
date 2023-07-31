@@ -10,7 +10,6 @@ const drinkDetailsContainer = document.querySelector(
 const welcomeSection = document.querySelector(".welcome");
 const mainTitle = document.querySelector(".main-title");
 
-// showWelcome();
 getCategories();
 getAlcohol();
 getGlass();

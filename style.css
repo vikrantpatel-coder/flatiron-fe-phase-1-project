@@ -1,27 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 html {
+
     font-family: 'Special Elite', cursive;
     background-color: beige;
 }
+body {
+    background: url("https://cdn.thewirecutter.com/wp-content/media/2021/01/non-alcoholic-drink-2048px-0052-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=980&dpr=2");
+    background-repeat: no-repeat;
+  }
 
-body{
-    background-image: url(https://cdn.thewirecutter.com/wp-content/media/2021/01/non-alcoholic-drink-2048px-0052-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=980&dpr=2);
-    background-color: #cccccc;
-   
-}
 .header{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+    flex-direction: column;
+    align-items: center;    
+
+
+}
 
   .main-title {
-    cursor: default;
+    font-size: xx-large;
+    cursor: pointer;
   }
 
+
 .card{
-    max-width: 20%;
+    max-width: 100%;
     border: solid 2px;
     margin: 10px;
     padding: 10px;
@@ -34,29 +38,26 @@ body{
   }
 
 .welcome{
-    font-size: larger;
+    font-size: x-large;
     max-width: 80%;
     margin: 50px auto;
     padding: 30px;
     background-color: azure;
     border-radius: 15px;
     box-shadow: 0 4px rgb(6, 6, 6);
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: minmax(150px, auto)
+    
 
 }
 
 .message{
     font-style: italic;
-    border-right: 1px solid;
     padding-right: 50px;
 }
 
 .card img{
-    border-radius: 5px 5px 0 0 ;
+    border-radius: 5px 5px 0 0;
     width: 100%;
+    
     
 }
 
@@ -70,6 +71,7 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
     justify-content: center;
+    justify-items: stretch;
     margin: 30px;
 }
 
@@ -82,11 +84,45 @@ body{
 
     display: grid;
     grid-template-columns: 1 1fr;
-    grid-template-areas: "title"
+    grid-template-areas: 
+    "title"
     "image"
     "image"
     "ingredients"
     "directions"
     "resources";
+
+    grid-template-areas: 
+    "title title title"
+    "image ingredients ingredients"
+    "directions directions directions"
+    "resources resources resources";
+}
+.drink-details-title{
+    font-size: xx-large;
+    grid-area: title;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.drink-details-image{
+    grid-area: image;
+
+}
+.drink-details-ingredients{
+    grid-area: ingredients;
+    font-size: x-large;
+    font-weight: bolder;
+
+}
+.drink-details-directions{
+grid-area: directions;
+font-size: x-large;
+font-weight: bold;
 }
 
+.drink-details-resources{
+    text-align: center;
+    grid-area: resources;
+}
