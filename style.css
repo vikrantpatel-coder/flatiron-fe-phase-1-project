@@ -8,6 +8,7 @@ html {
 body {
     background: url("https://cdn.thewirecutter.com/wp-content/media/2021/01/non-alcoholic-drink-2048px-0052-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=980&dpr=2");
     background-repeat: no-repeat;
+    background-attachment: fixed; 
   }
 
 .header{
