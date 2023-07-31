@@ -57,6 +57,7 @@ body{
 .card img{
     border-radius: 5px 5px 0 0 ;
     width: 100%;
+    
 }
 
 .drink-title{
@@ -71,3 +72,21 @@ body{
     justify-content: center;
     margin: 30px;
 }
+
+.drink-details-container{
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+
+    display: grid;
+    grid-template-columns: 1 1fr;
+    grid-template-areas: "title"
+    "image"
+    "image"
+    "ingredients"
+    "directions"
+    "resources";
+}
+
