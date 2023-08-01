@@ -103,20 +103,22 @@ body {
     "resources";
 }
 
-    @media screen {
+
+/* when device or browser screen resolution changes */
+
+    @media screen and (min-width:800px) {
         .drink-details-container {
-            max-width: 100%;
+            max-width: 70%;
             grid-template-columns: repeat(3, 1fr);
 
     grid-template-areas: 
     "title title title"
-    "image image image"
-    "ingredients ingredients ingredients"
-    "directions directions directions"
+    "image ingredients ingredients "
+    "image ingredients ingredients"
+    "image directions directions"
     "resources resources resources";
 
     
-
         }}
 
 
@@ -130,6 +132,8 @@ body {
 }
 
 
+/* when device or browser screen resolution changes */
+
 @media screen {
     .drink-details-image{
         width: auto;
@@ -142,9 +146,6 @@ body {
     
 
 }
-
-
-
 
 .drink-details-ingredients{
     grid-area: ingredients;
