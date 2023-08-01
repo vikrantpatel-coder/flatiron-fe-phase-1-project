@@ -64,7 +64,7 @@ body {
 
 .card img{
     border-radius: 5px 5px 0 0;
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     
@@ -135,7 +135,6 @@ body {
 
 
 /* when device or browser screen resolution changes */
-
 @media screen and (min-width:800px){
     .drink-details-image{
         width: auto;
