@@ -38,6 +38,7 @@ body {
 
 .card:hover {
     box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.4);
+    transition: 0.3s;
 
   }
 
@@ -49,6 +50,7 @@ body {
     background-color: azure;
     border-radius: 15px;
     box-shadow: 0 4px rgb(6, 6, 6);
+    transition: 0.3s;
     opacity: 0.8;
     
 
@@ -87,7 +89,7 @@ body {
 }
 
 .drink-details-container{
-    max-width: 100%;
+    width: 100%;
     margin: 50px auto;
     padding: 10px;
     border-radius: 15px;
@@ -108,7 +110,7 @@ body {
 
     @media screen and (min-width:800px) {
         .drink-details-container {
-            max-width: 70%;
+            width: 70%;
             grid-template-columns: repeat(3, 1fr);
 
     grid-template-areas: 
@@ -134,18 +136,16 @@ body {
 
 /* when device or browser screen resolution changes */
 
-@media screen {
+@media screen and (min-width:800px){
     .drink-details-image{
         width: auto;
-        max-width: 100%;
         height: auto;
         grid-area: image;
         
     
-}
+}}
     
 
-}
 
 .drink-details-ingredients{
     grid-area: ingredients;
