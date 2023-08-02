@@ -15,8 +15,7 @@
   > Explore some of the globally well known and unique drinks.
   > Click on a Category
   > and then on a drink card to view preparation details.
-  > You may filter by ingredients
-  > to personalize your own mix.
+  > You may filter by ingredients to personalize your own mix.
 
 - Contributor's Guide:
 
@@ -24,6 +23,6 @@
 
 - Roadmap:
   > I would like to implement food selection complementing with drink.
-  > Recommendation appetizers
-  > Embed Videos
-  > Popularity of the drink among the age groups
+  > Recommendation appetizers,
+  > Embed Videos,
+  > Popularity of the drink among the age groups.
