@@ -177,6 +177,7 @@ function renderDrinkDetails(drinkDetails) {
     strVideo: videoLink,
   } = drinkDetails;
 
+  //drinks <p> element
   const title = document.createElement("p");
   title.textContent = drink;
   let titleArea = document.querySelector(".drink-details-title");
@@ -184,6 +185,7 @@ function renderDrinkDetails(drinkDetails) {
   titleArea.replaceChildren();
   titleArea.append(title);
 
+  //drinks <img> element
   const imageArea = document.querySelector(".drink-details-image");
   const drinkImage = document.createElement("img");
   drinkImage.src = image;

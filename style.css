@@ -116,8 +116,8 @@ body {
     grid-template-areas: 
     "title title title"
     "image ingredients ingredients "
-    "image directions directions"
-    "image directions directions"
+    "image ingredients ingredients"
+    "directions directions directions"
     "resources resources resources";
 
     
@@ -137,7 +137,6 @@ body {
 /* when device or browser screen resolution changes */
 @media screen and (min-width:800px){
     .drink-details-image{
-      
         width: auto;
         height: auto;
         grid-area: image;
