@@ -10,7 +10,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
-    background-size: 100% 100%;
+    background-size: cover;
     
   }
 
@@ -44,15 +44,15 @@ body {
 
 .welcome{
     font-size: x-large;
-    max-width: 60%;
+    max-width: 50%;
     margin: 50px auto;
-    padding: 20px;
+    padding: 140px;
     background-color: azure;
     border-radius: 15px;
     box-shadow: 0 4px rgb(6, 6, 6);
     transition: 0.3s;
     opacity: 0.8;
-    
+   
 
 }
 
@@ -116,7 +116,7 @@ body {
     grid-template-areas: 
     "title title title"
     "image ingredients ingredients "
-    "image ingredients ingredients"
+    "image directions directions"
     "image directions directions"
     "resources resources resources";
 
@@ -137,6 +137,7 @@ body {
 /* when device or browser screen resolution changes */
 @media screen and (min-width:800px){
     .drink-details-image{
+      
         width: auto;
         height: auto;
         grid-area: image;
