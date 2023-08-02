@@ -122,7 +122,14 @@ body {
 
     
         }}
-
+img{
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: auto;
+    
+}
 
 .drink-details-title{
     font-size: xx-large;
@@ -137,19 +144,19 @@ body {
 /* when device or browser screen resolution changes */
 @media screen and (min-width:800px){
     .drink-details-image{
+        
         width: auto;
         height: auto;
         grid-area: image;
-        
+        object-fit: scale-down;
     
 }}
-    
-
 
 .drink-details-ingredients{
     grid-area: ingredients;
     font-size: x-large;
     font-weight: bolder;
+    text-align: center;
 
 }
 .drink-details-directions{
@@ -159,6 +166,5 @@ font-weight: bold;
 }
 
 .drink-details-resources{
-    text-align: center;
     grid-area: resources;
 }
