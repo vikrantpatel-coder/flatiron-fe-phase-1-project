@@ -129,6 +129,7 @@ img{
     height: auto;
     padding: auto;
     border-radius: 20%;
+    border: 1px solid #ddd;
     
     
 }
@@ -142,17 +143,6 @@ img{
     align-items: center;
 }
 
-
-/* when device or browser screen resolution changes */
-@media screen and (min-width:800px){
-    .drink-details-image{
-        
-        width: auto;
-        height: auto;
-        grid-area: image;
-        object-fit: scale-down;
-    
-}}
 
 .drink-details-ingredients{
     grid-area: ingredients;
