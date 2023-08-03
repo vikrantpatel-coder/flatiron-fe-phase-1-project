@@ -42,11 +42,11 @@ body {
 
   }
 
-.welcome{
+.welcome  {
     font-size: x-large;
     max-width: 50%;
     margin: 50px auto;
-    padding: 140px;
+    padding: 150px;
     background-color: azure;
     border-radius: 15px;
     box-shadow: 0 4px rgb(6, 6, 6);
@@ -77,11 +77,13 @@ body {
 }
 
 .drink-container{
+   
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
+    grid-gap: 5px;
     justify-content: center;
     margin: 30px;
+
 }
 
 .selection-heading{
@@ -90,9 +92,8 @@ body {
 
 .drink-details-container{
     width: 100%;
-    margin: 50px auto;
-    padding: 10px;
-    border-radius: 15px;
+    margin: 20px auto;
+    border-radius: 100px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 
     display: grid;
@@ -112,6 +113,7 @@ body {
         .drink-details-container {
             width: 70%;
             grid-template-columns: repeat(3, 1fr);
+            padding: 80px;
 
     grid-template-areas: 
     "title title title"

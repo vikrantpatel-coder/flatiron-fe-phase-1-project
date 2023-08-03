@@ -242,7 +242,9 @@ function renderDrinkDetails(drinkDetails) {
 // main title click function brings back to welcome message page
 function showWelcome() {
   drinkDetailsContainer.style.display = "none";
-  drinkContainer.style.display = "none";
-  welcomeSection.style.display = "grid";
+  drinkContainer.style.display = "grid";
+  drinkDetailsSection.style.display = "grid";
   selectionH1.textContent = "";
+  welcomeSection.style.display = "grid";
+  mainTitle.style.display = "grid";
 }
