@@ -238,13 +238,8 @@ function renderDrinkDetails(drinkDetails) {
   resourcesArea.replaceChildren();
   resourcesArea.append(youTubeLinkATag, drinkCategory);
 }
-
-// main title click function brings back to welcome message page
 function showWelcome() {
   drinkDetailsContainer.style.display = "none";
-  drinkContainer.style.display = "grid";
-  drinkDetailsSection.style.display = "grid";
-  selectionH1.textContent = "";
+  drinkContainer.style.display = "none";
   welcomeSection.style.display = "grid";
-  mainTitle.style.display = "grid";
 }

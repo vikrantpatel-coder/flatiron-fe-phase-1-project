@@ -11,8 +11,9 @@ body {
     background-attachment: fixed;
     width: 100%;
     background-size: cover;
-    
   }
+
+  
 
 .header{
     display: flex;
@@ -28,11 +29,13 @@ body {
   }
 
 
+
+
 .card{
     max-width: 100%;
     border: solid 1px;
     margin: 10px;
-    padding: 10px;
+    padding: 30px;
     background-color:beige;
 }
 
@@ -44,9 +47,8 @@ body {
 
 .welcome  {
     font-size: x-large;
-    max-width: 50%;
+    max-width: 60%;
     margin: 50px auto;
-    padding: 150px;
     background-color: azure;
     border-radius: 15px;
     box-shadow: 0 4px rgb(6, 6, 6);
@@ -67,6 +69,7 @@ body {
     width: 100%;
     max-width: 100%;
     height: auto;
+    object-position: center;
     
     
 }
@@ -92,11 +95,11 @@ body {
 
 .drink-details-container{
     width: 100%;
-    margin: 20px auto;
-    border-radius: 100px;
+    margin: 30px auto;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-
     display: grid;
+    padding: 20px;
     grid-template-columns: 1 1fr;
     grid-template-areas: 
     "title"
@@ -107,13 +110,17 @@ body {
 }
 
 
+
+
 /* when device or browser screen resolution changes */
 
     @media screen and (min-width:800px) {
         .drink-details-container {
-            width: 70%;
+            width: 80%;
             grid-template-columns: repeat(3, 1fr);
-            padding: 80px;
+            padding: 10px;
+            
+           
 
     grid-template-areas: 
     "title title title"
@@ -129,9 +136,10 @@ img{
     width: 100%;
     max-width: 100%;
     height: auto;
-    padding: auto;
+    padding: 5px;
     border-radius: 20%;
-    border: 1px solid #ddd;
+    border: 1px solid #0f0d0d;
+
     
     
 }
