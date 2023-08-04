@@ -20,6 +20,12 @@
 - Contributor's Guide:
 
   > Personal Project
+  > Pull requests are welcome. For major changes, please open an issue first
+  > to discuss what you would like to change.
+
+- Authors and acknowledgment:
+
+  > I would like to thank all the Flatiron instructors for providing us with the support and required tools to become successful in this project.
 
 - Roadmap:
   > I would like to implement food selection complementing with drink.
